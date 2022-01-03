@@ -8,6 +8,7 @@ setup(
     install_requires=[
         'Click',
         "simple-term-menu",
+        "pandas",
     ],
     entry_points={
         'console_scripts': [
