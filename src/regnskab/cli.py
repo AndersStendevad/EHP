@@ -1,13 +1,16 @@
 import click
+from pathlib import Path
 from regnskab.annotater import Annotater
 
 @click.command()
-@click.argument("name", default="world")
-def regnskab(name):
-    bot = Annotater(total=3) 
-    tags = bot.annotate("hello")
-    print(tags)
-    click.echo(f'Hello {name}!')
+@click.argument("kontobevaegelser", type=click.File('r'))
+@click.argument("bestillinger", type=click.File('r'))
+def regnskab(
+    kontobevaegelser: Path,
+    bestillinger: Path,
+    ):
+    
+    print(kontobevaegelser, kontobevaegelser)
 
 if __name__ == '__main__':
     regnskab()
