@@ -76,3 +76,4 @@ class Annotater:
             for tag in self._tags:
                 file.write(f"{tag}\n")
         exit()
+

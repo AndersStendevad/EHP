@@ -9,6 +9,8 @@ setup(
         'Click',
         "simple-term-menu",
         "pandas",
+        "requests",
+        "lxml"
     ],
     entry_points={
         'console_scripts': [

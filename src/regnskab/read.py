@@ -30,7 +30,7 @@ class CsvReader:
         else:
             with open(f'{self.out}{filename}', 'w+') as file:
                 file.write("text;dato;beløb;tags\n")
-        df = pd.read_csv("data/"+filename, sep="\t")
+        df = pd.read_csv("data/"+filename, sep=";")
         for row in df.itertuples(name='Line'):
             if row.Index in seen:
                 self.count_skipped += 1
