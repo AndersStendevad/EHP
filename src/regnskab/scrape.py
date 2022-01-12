@@ -60,9 +60,9 @@ def get_order(s, url, user):
 def scrape(orderlist):
     s = requests.Session()
     var = input("studenterbolaget cookie name: ")
-    cookie_name = var if var else "SSESS91a435977701fca406809cae2a2f78cf"
+    cookie_name = var if var else ""
     var2 = input("studenterbolaget cookie value: ")
-    cookie_value = var2 if var2 else "ar7gVEqH64xl90KGxput6Nh7-cITWwVO0o4A9ESPlZs" 
+    cookie_value = var2 if var2 else "" 
     s.cookies.update({cookie_name: cookie_value})
     url_base = "https://studenterbolaget.dk/user/234/orders/"
     
