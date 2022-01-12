@@ -10,7 +10,9 @@ setup(
         "simple-term-menu",
         "pandas",
         "requests",
-        "lxml"
+        "lxml",
+        "bf4",
+        "html5lib",
     ],
     entry_points={
         'console_scripts': [
