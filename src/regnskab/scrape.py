@@ -30,27 +30,35 @@ users = {"gl1":"Gl1",
 
 def get_sub_orders(s, url):
     rs = s.get(url).content
-    print(url)
+    print("big: " + url)
     sleep(0.5)
     soup = BeautifulSoup(rs, 'lxml')
     try:
         parsed_table = soup.find_all('table')[0]
     except:
-        raise Exception("No table found")
+        print("error retry in 1 min") 
+        sleep(60)
+        try:
+            parsed_table = soup.find_all('table')[0]
+        except:
+            raise Exception("No table found")
     data = [[td.a['href'] if td.find('a') else 
         ''.join(td.stripped_strings)
              for td in row.find_all('td')]
             for row in parsed_table.find_all('tr')]
+    df_list = pd.read_html(rs)
+    df = df_list[0]
+    if df.columns[0] == "Varenummer":
+        return [(url, "Ukendt")]
     try:
-        return [("https://studenterbolaget.dk/"+order[0], users[order[2]]) for order in data[1:]]
+        return [("https://studenterbolaget.dk"+order[0], users[order[2]]) for order in data[1:]]
     except KeyError:
-        return [("https://studenterbolaget.dk/"+order[0], order[0]) for order in data[1:]]
-
+        raise Exception(data)
 
 
 def get_order(s, url, user):
     r = s.get(url).content
-    print(url)
+    print("sub: " + url)
     sleep(0.5)
     df_list = pd.read_html(r)
     df = df_list[0]
