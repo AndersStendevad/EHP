@@ -11,7 +11,7 @@ setup(
         "pandas",
         "requests",
         "lxml",
-        "bf4",
+        "beautifulsoup4",
         "html5lib",
     ],
     entry_points={
