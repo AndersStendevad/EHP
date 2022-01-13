@@ -13,6 +13,7 @@ setup(
         "lxml",
         "beautifulsoup4",
         "html5lib",
+        "fpdf",
     ],
     entry_points={
         'console_scripts': [
